@@ -182,7 +182,7 @@ class QueryExpressionVisitor extends ExpressionVisitor
                 
                 return $this->expr->neq($field, $placeholder);
             case Comparison::CONTAINS:
-                $parameter->setValue('%' . $parameter->getValue() . '%', $parameter->getType());
+                $parameter->setValue($parameter->getValue(), $parameter->getType());
                 $this->parameters[] = $parameter;
                 
                 return $this->expr->like($field, $placeholder);
